@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSqlite.Views.ProductView">
+    <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical"
+            Padding="20"
+            Spacing="10">
+
+            <Label Text="Registro de Ventas"
+                FontSize="Medium"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Entry x:Name="dProducto"
+                   Placeholder="Producto"/>
+            <Entry x:Name="dCantidad"
+                   Placeholder="Cantidad"/>
+            <DatePicker
+                x:Name="DatePicker"
+                Format="D"
+                Margin="30,0,0,30"
+                Date="{Binding SelectedDate}"/>
+            <Button x:Name="BInsert"
+                    Text="Insertar Venta"
+                    Clicked="BInsert_Clicked"/>
+            <Button x:Name="BListar"
+                    Text="Listar Ventas"
+                    Clicked="BListar_Clicked"/>
+
+            <Label x:Name="StatusMessage"
+                   FontSize="Medium"/>
+
+            <ListView x:Name="listaventas">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding Producto}"/>
+                                <Label Grid.Column="1"
+                                       Text="{Binding Cantidad}"/>
+                                <Label Grid.Column="2"
+                                       Text="{Binding Fecha}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
